@@ -1,0 +1,13 @@
+
+{% extends 'plantilla/plantilla.html'%}
+
+{% block contenido %}   
+<h2>esto es parte de Cliente</h2>
+
+    {% for nombres in lista %}
+    <p>bienvenidos {{ nombres }}</p>  
+    {% endfor %}
+<br>
+<a href='/'>index</a>
+
+{%endblock%}

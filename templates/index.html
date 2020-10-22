@@ -1,0 +1,10 @@
+<!-- le indicamos la ruta y luego dentro de block el contenido -->
+{% extends 'plantilla/plantilla.html'%}
+
+{% block contenido %}   
+<h2>esto es parte del index</h2>
+
+<p>{{ name }}</p>
+<br>
+<a href='/cliente'>cliente</a>
+{%endblock%}
