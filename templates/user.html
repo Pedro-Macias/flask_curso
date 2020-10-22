@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>pagina user</title>
+</head>
+<body>
+	<h1>Estamos usando la user.html</h1>
+	<h2>VARIABLES</h2>
+	<h4>se recibien con doble corchete </h4>	
+	<h5> {{ name }} </h5>
+	<h5> tu edad es {{ age }} </h5>
+	
+	<h2>CONDICIONALES</h2>
+	<h4>los condicinales tienen que ir dentro de corchete y tanto por ciento </h4>	
+	{% if age > 18 %}
+		<p> es mayor de edad.</p>
+	{% endif %}	
+
+	<p>esto no esta dentro de la condicion</p>
+	<h2>CICLOS</h2>
+	{% for pieza in lista %}
+		<p>elementos de la lista:  {{ pieza }}</p>
+	{% endfor %}	
+</body> 
+</html>

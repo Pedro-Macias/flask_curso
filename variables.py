@@ -13,10 +13,12 @@ tendriamos que indicarselo a python
 app = Flask(__name__, template_folder = 'nombre-carpeta')
 '''
 app = Flask(__name__) 
-@app.route('/') 
-def index():
+@app.route('/user/<name>')
+def user(name='pedro'):
+    age = 20
+    my_list=[1,3,5,7, 'string',1.56]
     # ponemos el nombre del render que vamos a indexar
-    return render_template('index1.html')
+    return render_template('user.html',name=name, age=age, lista=my_list)
 
 if __name__ == '__main__':
-    app.run(debug= True,port= 9000)
+    app.run(debug= True,port= 8000)
