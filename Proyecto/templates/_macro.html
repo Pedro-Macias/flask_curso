@@ -14,5 +14,13 @@
    <td> {{ field.label}}
     <dd>{{ field(**kwargs)| safe  }}
 
+    <!-- MACRO PARA LOS ERRORES -->
+    {% if field.errors %}
+        <ul>
+            {%for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endmacro %}
