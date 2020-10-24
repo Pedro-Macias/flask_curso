@@ -8,3 +8,11 @@
 
 
 {% endmacro %}
+
+<!-- FUNCION FORMULARIO -->
+{% macro enviar_campos(field) %}
+   <td> {{ field.label}}
+    <dd>{{ field(**kwargs)| safe  }}
+
+
+{% endmacro %}
