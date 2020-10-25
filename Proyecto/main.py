@@ -17,6 +17,7 @@ def index():
         mail = formulario_coment.email.data
         coment = formulario_coment.comentario.data
         return 'usuario: {} , email {} , comentario {}'.format(usu , mail , coment)
+ 
         
         
 

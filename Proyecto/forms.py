@@ -2,8 +2,12 @@ from flask_wtf import FlaskForm
 from wtforms import Form 
 from wtforms import StringField , TextField
 from wtforms.fields.html5 import EmailField
+from wtforms import HiddenField
 from wtforms import validators
 
+def lengh_campoVacio(form,field):
+    if len(field.data)>0:
+        raise validators.ValidationError('el campo debe de estar vacio')
 
 class ComentarioForm(Form):
     usuario = StringField('Usuario',
@@ -19,4 +23,6 @@ class ComentarioForm(Form):
                 ]
                 )
     comentario = TextField('Comentario')
+    # este campo siempre estara vacio
+    campo_vacio = HiddenField('',[lengh_campoVacio])
 
