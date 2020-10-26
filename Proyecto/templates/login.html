@@ -8,24 +8,24 @@
 {% from "_macro.html" import enviar_campos %}    
     <div class="row">
         <div class="col-sm-12 mt-2 text-center bg-white ">
-            TITULO DE LA WEB
+            FORMULARIO DE LOGIN
         </div>
         <div class="col-sm-3">
-        </div>    
+        </div>  
+      
         <div class= "col-sm-6 mt-2">
-            <form name="enviarMensaje" id="comentarioForm" method="POST">
+            <form name="enviarLogin" id="comentarioForm" method="POST">
+                <!-- input con la clave se seguridad -->
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class ="form_group">
                     
-                    {{ enviar_campos( form.usuario, class='form-control') }}
+                    {{ enviar_campos( form.user, class='form-control') }}
                    
                 </div>
                 <div class ="form_group">
-                    {{ enviar_campos( form.email, class='form-control') }}
+                    {{ enviar_campos( form.password, class='form-control') }}
                 </div>
-                <div class ="form_group">
-                    {{ enviar_campos( form.comentario, class='form-control') }}
-                </div> 
+               
                 {{ form.campo_vacio}}
                 
                 <div class="form group"> 

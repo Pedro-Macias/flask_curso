@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import Form 
 from wtforms import StringField , TextField
 from wtforms.fields.html5 import EmailField
+from wtforms import PasswordField
 from wtforms import HiddenField
 from wtforms import validators
 
@@ -25,4 +26,20 @@ class ComentarioForm(Form):
     comentario = TextField('Comentario')
     # este campo siempre estara vacio
     campo_vacio = HiddenField('',[lengh_campoVacio])
+
+class LoginForm(Form):
+    user = StringField('Usuario',
+               [ 
+                   validators.length(min=5, max = 10, message='ingrese un usuario minimo 5 caracteres y maximo 10'),
+                   validators.Required(message = 'el nombre de usuario es Obligatio')
+                   
+               ]
+               )
+    password = PasswordField('Contraseña',
+                [
+                validators.Required('la contraseña es Obligatoria')
+                
+                ]
+                )
+    
 
