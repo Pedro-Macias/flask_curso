@@ -28,7 +28,7 @@ class ComentarioForm(Form):
     campo_vacio = HiddenField('',[lengh_campoVacio])
 
 class LoginForm(Form):
-    user = StringField('Usuario',
+    username = StringField('Usuario',
                [ 
                    validators.length(min=5, max = 10, message='ingrese un usuario minimo 5 caracteres y maximo 10'),
                    validators.Required(message = 'el nombre de usuario es Obligatio')
