@@ -17,6 +17,11 @@ app = Flask(__name__)
 app.secret_key = 'mi_clave_secreta'
 csrf = CsrfProtect(app)
 
+# plantilla de error - el 404 es cuando el servidor no encuentra el recurso
+@app.errorhandler(404)
+def page_not_foud(error):
+    title = 'error 404'
+    return render_template('/404.html',title=title),404
 
 # las rutas son accedidas por metodo GET , si queremos otro metodo habra que indicarlo
 @app.route('/', methods = ['GET', 'POST'] ) 
@@ -25,15 +30,10 @@ def index():
         username = session['username']
         
     custome_cookie = request.cookies.get('custome_cookie','Undefined')
-    formulario_coment = forms.ComentarioForm(request.form)
-    if request.method == 'POST' and formulario_coment.validate():
-        usu= formulario_coment.usuario.data
-        mail = formulario_coment.email.data
-        coment = formulario_coment.comentario.data
-        return 'usuario: {} , email {} , comentario {}'.format(usu , mail , coment)
+    
 
     title = 'Mi Proyecto Flask'
-    return render_template('index.html',title=title, form =formulario_coment )
+    return render_template('index.html',title=title)
 
 @app.route('/logout')
 def logout():
@@ -59,6 +59,22 @@ def cookie():
     response = make_response(render_template('cookie.html'))
     response.set_cookie('custome_cookie','Pedro')
     return response     
+
+@app.route('/coment', methods = ['GET', 'POST'] ) 
+def coment():
+    if 'username' in session:
+        username = session['username']
+        
+    custome_cookie = request.cookies.get('custome_cookie','Undefined')
+    formulario_coment = forms.ComentarioForm(request.form)
+    if request.method == 'POST' and formulario_coment.validate():
+        usu= formulario_coment.usuario.data
+        mail = formulario_coment.email.data
+        coment = formulario_coment.comentario.data
+        return 'usuario: {} , email {} , comentario {}'.format(usu , mail , coment)
+
+    title = 'comentarios'
+    return render_template('coment.html',title=title, form =formulario_coment )
 
 
 

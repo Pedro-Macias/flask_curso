@@ -13,22 +13,23 @@
     </head>
     <body>
         <div class ="container">
-            <div class="row d-inline text-secondary">
+            <div class="row d-inline text-white bg-ligh">
                 <a href="/" class="m-2 ">index</a> 
                 <a href="/login">login</a>
+                <a href="/coment">Comentarios</a>
+
             </div>
+            <div>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
-                     <div class="text-white bg-secondary">
+                     <div class="text-white bg-secondary text-center">
                      {{ message }}
                      </div>
-                    {%endfor%}
-                    
-                    
-
+                    {%endfor%}                    
                 {% endif %}
             {% endwith%}
+            </div>
              <!-- Creamos una plantilla y le indicamos con block y endblock donde va el contenido -->    
             {% block contenido %}
 
