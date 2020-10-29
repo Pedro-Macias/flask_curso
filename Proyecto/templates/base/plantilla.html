@@ -17,6 +17,18 @@
                 <a href="/" class="m-2 ">index</a> 
                 <a href="/login">login</a>
             </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                     <div class="text-white bg-secondary">
+                     {{ message }}
+                     </div>
+                    {%endfor%}
+                    
+                    
+
+                {% endif %}
+            {% endwith%}
              <!-- Creamos una plantilla y le indicamos con block y endblock donde va el contenido -->    
             {% block contenido %}
 

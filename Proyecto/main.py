@@ -4,6 +4,7 @@ from flask import render_template
 from flask import request
 from flask import make_response
 from flask import session
+from flask import flash
 from flask import url_for
 from flask import redirect
 from flask_wtf import CsrfProtect
@@ -45,6 +46,9 @@ def login():
     login_form = forms.LoginForm(request.form)
     title = 'formulario login'
     if request.method == 'POST' and login_form.validate():
+        username = login_form.username.data
+        sucess_message = 'Bienvenido {}'.format(username)
+        flash(sucess_message)
         session['username'] = login_form.username.data
 
     return render_template('login.html',title=title ,form= login_form)   

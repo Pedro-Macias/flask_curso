@@ -30,7 +30,7 @@ class ComentarioForm(Form):
 class LoginForm(Form):
     username = StringField('Usuario',
                [ 
-                   validators.length(min=5, max = 10, message='ingrese un usuario minimo 5 caracteres y maximo 10'),
+                   validators.length(min=3, max = 10, message='ingrese un usuario minimo 5 caracteres y maximo 10'),
                    validators.Required(message = 'el nombre de usuario es Obligatio')
                    
                ]
