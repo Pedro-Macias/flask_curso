@@ -14,19 +14,19 @@
         </div>  
       
         <div class= "col-sm-6 mt-2">
-            <form name="enviarLogin" id="comentarioForm" method="POST">
+            <form id="login-form" method="POST">
                 <!-- input con la clave se seguridad -->
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class ="form_group">
                     
-                    {{ enviar_campos( form.username, class='form-control') }}
+                    {{ enviar_campos( form.username, class='form-control',id='username') }}
                    
                 </div>
                 <div class ="form_group">
-                    {{ enviar_campos( form.password, class='form-control') }}
+                    {{ enviar_campos( form.password, class='form-control', id='password' ) }}
                 </div>
                
-                {{ form.campo_vacio}}
+                
                 
                 <div class="form group"> 
                     <button type="submit" class="btn btn-default">Enviar</button>
