@@ -1,0 +1,18 @@
+<!-- le indicamos la ruta y luego dentro de block el contenido -->
+{% extends 'base/plantilla.html'%}
+{%block title %} {{title}} {% endblock %}
+
+<!-- utilizamos una macro -->
+{% block contenido %}   
+<!-- importamos la funcion -->
+{% from "_macro.html" import enviar_campos %}    
+    <div class="row">
+        <div class="col-sm-12 mt-2 text-center bg-white ">
+           COOKIE
+        </div>
+        
+    </div>
+
+
+
+{%endblock%}
